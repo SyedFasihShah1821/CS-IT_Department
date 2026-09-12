@@ -506,13 +506,13 @@ export default function Home() {
 
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {sponsors.slice(0, 8).map((s) => (
-              <a key={s.id} href={s.url} className="group rounded-2xl border border-slate-200 bg-slate-50 p-5 hover:bg-white hover:shadow-lg hover:border-blue-200 transition flex flex-col text-left">
+              <a key={s.id} href={s.url} target={s.url && s.url !== "#" ? "_blank" : undefined} rel={s.url && s.url !== "#" ? "noreferrer" : undefined} className="group rounded-2xl border border-slate-200 bg-slate-50 p-5 hover:bg-white hover:shadow-lg hover:border-blue-200 transition flex flex-col text-left">
                 <div className="h-[72px] rounded-xl bg-white border border-slate-200 flex items-center justify-center p-3 grayscale group-hover:grayscale-0 transition">
-                  <img src={s.logo} alt={`${s.name} logo`} className="max-h-9 object-contain" />
+                  <img src={s.logo} alt={`${s.name} logo`} className="max-h-9 object-contain" loading="lazy" />
                 </div>
                 <h3 className="mt-4 font-display font-bold text-slate-900 group-hover:text-blue-600 leading-tight">{s.name}</h3>
-                <p className="text-xs font-bold tracking-widest uppercase text-slate-500 mt-1">{s.tier}</p>
-                <p className="text-xs text-slate-600 mt-2 line-clamp-2 flex-1">{s.description}</p>
+                <p className="text-xs font-bold tracking-widest uppercase text-slate-500 mt-1">{s.category}</p>
+                <p className="text-xs text-slate-600 mt-2 line-clamp-2 flex-1">{s.description.replace(" [PLACEHOLDER — verify before publishing]", "").replace(" [PLACEHOLDER]", "")}</p>
                 <span className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-blue-600">
                   {s.url !== "#" ? "Visit website →" : "Category details →"}
                 </span>
