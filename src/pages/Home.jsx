@@ -5,7 +5,7 @@ import SectionHeading from "../components/common/SectionHeading";
 import { events } from "../data/events";
 import { announcements } from "../data/announcements";
 import { team } from "../data/team";
-import { gallery } from "../data/gallery";
+import { albums } from "../data/gallery";
 import { sponsors } from "../data/sponsors";
 import { siteMeta } from "../data/siteMeta";
 
@@ -15,7 +15,9 @@ export default function Home() {
   // Upcoming events grid — 3-6 cards
   const upcomingEvents = events.filter((e) => e.status === "Upcoming").slice(0, 4);
   const latestAnn = announcements.slice(0, 4);
-  const previewGallery = gallery.slice(0, 6);
+  // Gallery preview — event-wise albums + sample photos
+  const galleryAlbums = albums.slice(0, 4).map((a) => ({ name: a.title, count: a.photos.length, cover: a.coverImage, category: a.category }));
+  const previewGallery = albums.flatMap((a) => a.photos).slice(0, 3);
   // Team preview — President, VP, General Secretary + key coordinators
   const teamPreviewIds = ["syed-fasih-shah", "laiba-ahmed", "bilal-hassan", "sara-tariq", "hamza-rauf", "zainab-ali"];
   const previewTeam = teamPreviewIds.map((id) => team.find((m) => m.id === id)).filter(Boolean);
@@ -26,13 +28,6 @@ export default function Home() {
     { value: "30+", label: "Competitions", sub: "Hackathons & CTFs", icon: "🏆" },
     { value: "25+", label: "Seminars", sub: "Talks & panels", icon: "🎙️" },
     { value: "3,500+", label: "Students Reached", sub: "Participants", icon: "👥" },
-  ];
-
-  const galleryAlbums = [
-    { name: "TechNex 2024", count: 18, cover: gallery[0]?.src, category: "Symposium" },
-    { name: "CodeSprint 24", count: 12, cover: gallery[1]?.src, category: "Hackathon" },
-    { name: "Workshops", count: 24, cover: gallery[2]?.src, category: "Workshop" },
-    { name: "Cultural Nights", count: 15, cover: gallery[3]?.src, category: "Cultural" },
   ];
 
   return (
