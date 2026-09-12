@@ -15,6 +15,8 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
+    <>
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:rounded-full focus:bg-slate-900 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white">Skip to content</a>
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/85 backdrop-blur-xl supports-[backdrop-filter]:bg-white/75">
       {/* Top identity bar — Department/University + utility */}
       <div className="hidden lg:block bg-slate-950 text-slate-300 text-xs border-b border-white/10">
@@ -203,5 +205,6 @@ export default function Header() {
         </div>
       )}
     </header>
+    </>
   );
 }

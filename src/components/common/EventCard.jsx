@@ -19,7 +19,7 @@ export default function EventCard({ event }) {
           src={event.image}
           alt={`${event.title} poster`}
           className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
-          loading="lazy"
+          loading="lazy" decoding="async"
         />
         {/* Category + status */}
         <div className="absolute left-3 top-3 flex flex-wrap gap-2">

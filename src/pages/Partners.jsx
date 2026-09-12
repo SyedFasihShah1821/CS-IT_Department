@@ -2,10 +2,12 @@ import { useState, useMemo } from "react";
 import { sponsors, partnerCategories } from "../data/sponsors";
 import SectionHeading from "../components/common/SectionHeading";
 import { Link } from "react-router-dom";
+import usePageMeta from "../hooks/usePageMeta";
 
 const allCats = ["All", ...partnerCategories];
 
 export default function Partners() {
+  usePageMeta({ title: "Partners & Sponsors", description: "Verified partners across Corporate, Technology, Education/Training, Media, Community, Event Sponsors and University Supporting Units — logos, categories and Why Partner With Us." });
   const [active, setActive] = useState("All");
 
   const filtered = useMemo(() => {

@@ -4,6 +4,7 @@ import Button from "../components/common/Button";
 import { team } from "../data/team";
 import { events } from "../data/events";
 import { siteMeta } from "../data/siteMeta";
+import usePageMeta from "../hooks/usePageMeta";
 
 function SocialLink({ href, label, children }) {
   if (!href || href === "#") return null;
@@ -24,6 +25,10 @@ function SocialLink({ href, label, children }) {
 export default function MemberProfile() {
   const { id } = useParams();
   const member = team.find((m) => m.id === id);
+  usePageMeta({
+    title: member ? `${member.name} — ${member.role}` : "Member Not Found",
+    description: member ? `${member.name}, ${member.role} — ${member.category}, ${member.program} ${member.semester}. ${member.bio}` : "Team member not found.",
+  });
 
   if (!member) {
     return (

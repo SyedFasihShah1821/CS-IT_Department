@@ -1,8 +1,10 @@
 import { useState } from "react";
 import SectionHeading from "../components/common/SectionHeading";
 import { siteMeta } from "../data/siteMeta";
+import usePageMeta from "../hooks/usePageMeta";
 
 export default function Contact() {
+  usePageMeta({ title: "Contact Us", description: "Contact the CS & IT Event Management Society — official email, phone, address, socials, Google Maps location and frontend-only contact form. No login required." });
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
@@ -26,8 +28,6 @@ export default function Contact() {
     }
     // Do NOT pretend to send email — backend not connected. Show pending-integration notice.
     setSubmitted(true);
-    // Keep values for demo inspection; optionally log to console for devs
-    console.log("[Contact form preview — not sent]", form);
   }
 
   const mapsQuery = encodeURIComponent(siteMeta.address);

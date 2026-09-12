@@ -2,10 +2,12 @@ import { useState, useMemo, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { albums } from "../data/gallery";
 import Badge from "../components/common/Badge";
+import usePageMeta from "../hooks/usePageMeta";
 
 const categories = ["All", "Workshops", "Competitions", "Seminars", "Department Events", "Guest Sessions", "Awards/Ceremonies"];
 
 export default function Gallery() {
+  usePageMeta({ title: "Gallery", description: "Event-wise photo albums for Workshops, Competitions, Seminars, Department Events, Guest Sessions and Awards — cover, date, photo count and lightbox with captions." });
   const [activeCat, setActiveCat] = useState("All");
   const [activeAlbumId, setActiveAlbumId] = useState(null);
   const [lightboxIndex, setLightboxIndex] = useState(null);

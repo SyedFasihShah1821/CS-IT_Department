@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Badge from "../components/common/Badge";
 import { announcements } from "../data/announcements";
 import { events } from "../data/events";
+import usePageMeta from "../hooks/usePageMeta";
 
 const categories = [
   "All",
@@ -15,6 +16,7 @@ const categories = [
 ];
 
 export default function Announcements() {
+  usePageMeta({ title: "Announcements", description: "Official announcements — upcoming events, registration deadlines, venue changes, competition results, society updates and important notices." });
   const [active, setActive] = useState("All");
   const [q, setQ] = useState("");
   const [expanded, setExpanded] = useState(null);
@@ -64,7 +66,7 @@ export default function Announcements() {
               <input
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
-                placeholder="Search title, category, content…"
+                aria-label="Search announcements" placeholder="Search title, category, content…"
                 className="w-[240px] sm:w-[300px] rounded-full px-4 py-2 text-sm focus:outline-none placeholder:text-slate-400"
               />
               <span className="hidden sm:inline-flex h-8 w-8 rounded-full bg-slate-900 text-white place-items-center justify-center">⌕</span>

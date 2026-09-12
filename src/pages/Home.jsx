@@ -8,8 +8,14 @@ import { team } from "../data/team";
 import { albums } from "../data/gallery";
 import { sponsors } from "../data/sponsors";
 import { siteMeta } from "../data/siteMeta";
+import usePageMeta from "../hooks/usePageMeta";
 
 export default function Home() {
+  usePageMeta({
+    title: "Home",
+    description:
+      "Official public website of the CS & IT Event Management Society, Department of CS & IT — events, workshops, hackathons, gallery, team, achievements and partners. No login required.",
+  });
   // Featured event — poster + full details
   const featuredEvent = events.find((e) => e.featured && e.status === "Upcoming") || events.find((e) => e.status === "Upcoming") || events[0];
   // Upcoming events grid — 3-6 cards
@@ -39,6 +45,8 @@ export default function Home() {
             src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=1600&q=80&auto=format&fit=crop"
             alt="CS & IT Event Management Society banner"
             className="h-full w-full object-cover opacity-[0.28]"
+            fetchPriority="high"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950/30 via-slate-950/75 to-slate-950" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(37,99,235,0.22),transparent_60%)]" />
@@ -109,8 +117,10 @@ export default function Home() {
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <img
                       src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80&auto=format&fit=crop"
-                      alt="TechNex"
+                      alt="Students presenting projects at TechNex symposium"
                       className="h-full w-full object-cover"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent" />
                     <div className="absolute left-4 right-4 bottom-4">

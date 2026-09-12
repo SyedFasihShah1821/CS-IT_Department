@@ -2,10 +2,12 @@ import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import SectionHeading from "../components/common/SectionHeading";
 import { achievements, achievementCategories } from "../data/achievements";
+import usePageMeta from "../hooks/usePageMeta";
 
 const allCats = ["All", ...achievementCategories];
 
 export default function Achievements() {
+  usePageMeta({ title: "Achievements", description: "Competition wins, awards, successful events, participation certificates, student achievements and society milestones — 13 highlights since 2018." });
   const [active, setActive] = useState("All");
 
   const filtered = useMemo(() => {
@@ -17,8 +19,8 @@ export default function Achievements() {
     <div>
       {/* Hero */}
       <section className="bg-slate-950 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <img src="https://images.unsplash.com/photo-1567427018141-0584cfcbf1b8?w=1600&q=80&auto=format&fit=crop" alt="" className="h-full w-full object-cover" />
+        <div className="absolute inset-0 opacity-20" aria-hidden="true">
+          <img src="https://images.unsplash.com/photo-1567427018141-0584cfcbf1b8?w=1600&q=80&auto=format&fit=crop" alt="Award ceremony background — decorative" className="h-full w-full object-cover" decoding="async" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/50 via-slate-950/70 to-slate-950" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">

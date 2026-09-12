@@ -3,11 +3,13 @@ import SectionHeading from "../components/common/SectionHeading";
 import Badge from "../components/common/Badge";
 import EventCard from "../components/common/EventCard";
 import { events } from "../data/events";
+import usePageMeta from "../hooks/usePageMeta";
 
 const categories = ["All", "Workshops", "Seminars", "Competitions", "Webinars", "Trainings", "Social/Departmental Events"];
 const statuses = ["All", "Upcoming", "Ongoing", "Past"];
 
 export default function Events() {
+  usePageMeta({ title: "Events", description: "Browse all society events by time and type — Upcoming, Ongoing and Past across Workshops, Seminars, Competitions, Webinars, Trainings and Social events. 120+ events since 2018." });
   const [activeCat, setActiveCat] = useState("All");
   const [activeStatus, setActiveStatus] = useState("All");
   const [q, setQ] = useState("");
@@ -62,6 +64,7 @@ export default function Events() {
               <input
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
+                aria-label="Search events"
                 placeholder="Search by name, category, description…"
                 className="w-[220px] sm:w-[300px] rounded-full px-4 py-2 text-sm focus:outline-none placeholder:text-slate-400"
               />

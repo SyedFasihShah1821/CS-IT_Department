@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { team, teamCategories } from "../data/team";
+import usePageMeta from "../hooks/usePageMeta";
 
 const cats = ["All", ...teamCategories];
 
@@ -42,6 +43,7 @@ function SocialIcons({ member }) {
 }
 
 export default function Team() {
+  usePageMeta({ title: "Our Team", description: "Meet the five wings: Executive Body, Event Management, Media & Marketing, Technical and Volunteers — 20 members with profiles, program/semester and approved socials." });
   const [active, setActive] = useState("All");
   const [q, setQ] = useState("");
 
@@ -77,6 +79,7 @@ export default function Team() {
               <input
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
+                aria-label="Search team members"
                 placeholder="Search by name, role or program…"
                 className="w-full lg:w-[280px] rounded-full px-4 py-2 text-sm focus:outline-none placeholder:text-slate-400"
               />

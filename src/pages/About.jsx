@@ -2,14 +2,20 @@ import SectionHeading from "../components/common/SectionHeading";
 import Button from "../components/common/Button";
 import { Link } from "react-router-dom";
 import { siteMeta } from "../data/siteMeta";
+import usePageMeta from "../hooks/usePageMeta";
 
 export default function About() {
+  usePageMeta({
+    title: "About Society",
+    description:
+      "Learn about the CS & IT Event Management Society — vision, mission, objectives, role in the department and student development. Founded 2018, 250+ members, 4 wings.",
+  });
   return (
     <div>
       {/* Hero — Society Introduction anchor */}
       <section className="bg-slate-950 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-          <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=1600&q=80&auto=format&fit=crop" alt="CS & IT Event Management Society" className="h-full w-full object-cover" />
+          <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=1600&q=80&auto=format&fit=crop" alt="CS & IT Event Management Society gathering" className="h-full w-full object-cover" decoding="async" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 to-slate-950" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
@@ -69,7 +75,7 @@ export default function About() {
 
             <div className="lg:col-span-5">
               <div className="rounded-2xl overflow-hidden border border-slate-200 bg-slate-50">
-                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80&auto=format&fit=crop" alt="Students collaborating" className="aspect-[16/10] object-cover w-full" />
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80&auto=format&fit=crop" alt="Students collaborating on a project" className="aspect-[16/10] object-cover w-full" loading="lazy" decoding="async" />
                 <div className="p-5">
                   <h3 className="font-display font-bold text-slate-900">How we work</h3>
                   <ul className="mt-3 space-y-2 text-sm text-slate-600">

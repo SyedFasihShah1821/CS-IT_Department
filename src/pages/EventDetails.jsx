@@ -3,11 +3,16 @@ import Badge from "../components/common/Badge";
 import Button from "../components/common/Button";
 import { events } from "../data/events";
 import { sponsors } from "../data/sponsors";
+import usePageMeta from "../hooks/usePageMeta";
 
 export default function EventDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
   const ev = events.find((e) => e.id === id);
+  usePageMeta({
+    title: ev ? ev.title : "Event Not Found",
+    description: ev ? `${ev.title} — ${ev.category}, ${ev.date} at ${ev.venue}. ${ev.excerpt}` : "Event not found — explore all society events.",
+  });
 
   if (!ev) {
     return (
