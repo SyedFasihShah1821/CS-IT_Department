@@ -1,8 +1,9 @@
 export const siteMeta = {
   department: "Department of Computer Science & Information Technology",
-  society: "Event Management Society",
+  university: "University of Science & Technology",
+  society: "CS & IT Event Management Society",
   shortName: "CS & IT EMS",
-  tagline: "Innovate • Organize • Inspire",
+  tagline: "Learn • Connect • Innovate • Lead",
   established: "2018",
   email: "ems@csit-university.edu.pk",
   phone: "+92 300 123 4567",
@@ -18,15 +19,15 @@ export const siteMeta = {
 };
 
 export const navLinks = [
-  { label: "Home", path: "/" },
-  { label: "About", path: "/about" },
-  { label: "Events", path: "/events" },
-  { label: "Gallery", path: "/gallery" },
-  { label: "Announcements", path: "/announcements" },
-  { label: "Team", path: "/team" },
-  { label: "Achievements", path: "/achievements" },
-  { label: "Partners", path: "/partners" },
-  { label: "Contact", path: "/contact" },
+  { label: "HOME", path: "/" },
+  { label: "ABOUT", path: "/about" },
+  { label: "EVENTS", path: "/events" },
+  { label: "GALLERY", path: "/gallery" },
+  { label: "ANNOUNCEMENTS", path: "/announcements" },
+  { label: "TEAM", path: "/team" },
+  { label: "ACHIEVEMENTS", path: "/achievements" },
+  { label: "PARTNERS", path: "/partners" },
+  { label: "CONTACT", path: "/contact" },
 ];
 
 export const stats = [

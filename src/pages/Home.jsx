@@ -17,69 +17,81 @@ export default function Home() {
 
   return (
     <div className="overflow-hidden">
-      {/* HERO */}
+      {/* HERO — Professional society/event banner */}
       <section className="relative bg-slate-950 overflow-hidden">
+        {/* Banner background */}
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=1600&q=80&auto=format&fit=crop"
-            alt=""
-            className="h-full w-full object-cover opacity-25"
+            alt="CS & IT Event Management Society banner"
+            className="h-full w-full object-cover opacity-[0.28]"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-slate-950/70 to-slate-950" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(37,99,235,0.25),transparent_60%)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/30 via-slate-950/75 to-slate-950" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(37,99,235,0.22),transparent_60%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:48px_48px] opacity-30" />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
-          <div className="grid lg:grid-cols-12 gap-10 items-center">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-24">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 text-blue-100 px-3 py-1 text-xs font-semibold tracking-widest uppercase backdrop-blur">
-                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                {siteMeta.department} • {siteMeta.society}
-                <span className="hidden sm:inline-flex items-center gap-2 ml-2 pl-2 border-l border-white/20">
-                  <span className="h-1 w-1 rounded-full bg-white/60" />
-                  Est. {siteMeta.established}
-                </span>
+              {/* Tagline — spec exact */}
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 text-blue-100 px-3.5 py-1.5 text-xs font-bold tracking-[0.14em] uppercase backdrop-blur animate-fade-in">
+                <span className="h-1.5 w-1.5 rounded-full bg-cyan-300 animate-pulse" />
+                {siteMeta.tagline}
               </div>
 
-              <h1 className="font-display text-[32px] sm:text-[44px] lg:text-[52px] font-extrabold leading-[0.95] tracking-tight text-white mt-6">
-                Where
-                <span className="bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent"> Computer Science </span>
-                meets
-                <br />
-                celebration.
+              {/* Society name — primary H1 */}
+              <h1 className="font-display text-[34px] sm:text-[42px] lg:text-[54px] font-extrabold leading-[0.92] tracking-tight text-white mt-5 animate-fade-in-up">
+                CS & IT
+                <span className="block bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-300 bg-clip-text text-transparent">
+                  Event Management Society
+                </span>
               </h1>
 
-              <p className="mt-5 text-[15px] lg:text-[17px] leading-relaxed text-slate-300 max-w-2xl">
-                We are the official Event Management Society of the CS & IT Department — curating{" "}
-                <span className="text-white font-medium">hackathons, workshops, research symposia</span> and cultural fests that turn
-                classrooms into communities and ideas into impact.
+              {/* Department/University identity */}
+              <p className="mt-3 text-xs font-semibold tracking-widest uppercase text-slate-400 animate-fade-in delay-100">
+                {siteMeta.department} • {siteMeta.university}
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Button to="/events" size="lg" className="shadow-lg shadow-blue-900/20">
-                  Explore Events
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              {/* Short introduction — spec */}
+              <p className="mt-5 text-[15px] lg:text-[17px] leading-relaxed text-slate-300 max-w-2xl animate-fade-in delay-100">
+                The official student-led society of the CS & IT Department — orchestrating{" "}
+                <span className="text-white font-semibold">hackathons, workshops, research symposia</span> and cultural
+                celebrations that turn classrooms into communities and ideas into impact.
+              </p>
+
+              {/* CTAs — View Events + Explore Society (spec exact labels) */}
+              <div className="mt-8 flex flex-wrap gap-3 animate-fade-in delay-200">
+                <Button to="/events" size="lg" className="shadow-lg shadow-blue-900/25 hover:shadow-xl hover:-translate-y-px active:translate-y-0">
+                  View Events
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="opacity-90">
                     <path d="M5 12h14M13 5l7 7-7 7" />
                   </svg>
                 </Button>
-                <Button to="/about" variant="secondary" size="lg" className="bg-white text-slate-900 hover:bg-slate-50">
-                  About the Society
-                </Button>
-                <a
-                  href="#featured"
-                  className="hidden sm:inline-flex items-center gap-2 rounded-full border border-white/20 text-white px-6 py-3 text-sm font-semibold hover:bg-white/10 transition"
+                <Button
+                  to="/about"
+                  variant="secondary"
+                  size="lg"
+                  className="bg-white text-slate-900 hover:bg-slate-50 border-white shadow-sm hover:shadow-md hover:-translate-y-px active:translate-y-0"
                 >
-                  ▶ Watch Highlights
-                </a>
+                  Explore Society
+                </Button>
               </div>
 
-              <div className="mt-8 flex flex-wrap items-center gap-4 text-xs text-slate-400">
+              {/* Trust strip */}
+              <div className="mt-8 flex flex-wrap items-center gap-4 text-xs text-slate-400 animate-fade-in delay-300">
                 <span className="inline-flex items-center gap-2">
-                  <span className="h-6 w-6 rounded-full bg-white flex items-center justify-center text-slate-900 font-bold text-[10px]">✓</span>
+                  <span className="h-6 w-6 rounded-full bg-white flex items-center justify-center text-slate-900 font-bold text-[10px] shadow-sm">✓</span>
                   Trusted by {stats[1].value} events
                 </span>
                 <span className="h-4 w-px bg-white/15 hidden sm:block" />
-                <span>Next up: <span className="text-white font-medium">CyberSecure Workshop — Oct 20</span></span>
+                <span>
+                  Next up: <span className="text-white font-medium">CyberSecure Workshop — Oct 20</span>
+                </span>
+                <span className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/20 text-emerald-300 px-2.5 py-1 text-[11px] font-bold tracking-wide uppercase">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  Registrations open
+                </span>
               </div>
             </div>
 
